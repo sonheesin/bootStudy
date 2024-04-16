@@ -69,6 +69,7 @@ dependencies {
 
 //쿼리dsl 관련 설정 추가
 implementation "com.querydsl:querydsl-jpa:${queryDslVersion}:jakarta"
+    implementation 'net.coobird:thumbnailator:0.4.16'
 
 
 annotationProcessor(//쿼리dsl 관련 설정 추가

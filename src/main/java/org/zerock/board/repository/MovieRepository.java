@@ -26,7 +26,7 @@ public interface MovieRepository extends JpaRepository<Movie,Long> {
     @Query("select m, mi, avg(coalesce(r.grade,0)),  count(r) from Movie m " +
             "left outer join MovieImage mi on mi.movie = m " +
             "left outer join Review  r on r.movie = m group by m ")
-    Page<Object[]> getListPage(Pageable pageable); //페이징 처리
+    Page<Object[]> getListPage(Pageable pageable);//페이징 처리
 
 
     @Query("select m, mi ,avg(coalesce(r.grade,0)),  count(r)" +

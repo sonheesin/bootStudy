@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>dto 객체 출력해보기</title>
+</head>
+<body>
+<ul>
+
+  <li th:each="dto,status : ${list}"> <!-- for 문 모델에 있는 list 키를 가져옴!-->
+    <!--model.addAttribute("list" 여기 해당-->
+    [[${status.index}]] --- [[${dto}]] <!-- list 안쪽 객체를 출력-->
+    <!--model.addAttribute("list   -- "list"); 여기해당 -->
+
+  <li th:each="dto,status : ${list}">
+    <span th:if="${dto.sno % 5 == 0}" th:text="${'-----------'+dto.sno}"></span>
+
+    <span th:unless="${dto.sno % 5 == 0 }" th:text="${dto.first}"></span>
+  <li th:each="dto,status : ${list}" th:text="${dto.sno % 5 == 0}?
+          ${dto.sno}: ${dto.first} ">
+
+    <style>
+      .target{
+        background-color: red;
+
+      }
+    </style>
+
+    <ul>
+      <li th:each="dto , status : ${list}" th:class="${dto.sno %5 ==0}?
+      'target'" th:text="${dto}">
+
+      </li>
+    </ul>
+
+  <ul>
+    <th:block th:each="dto: ${list}">
+      <li th:text="${dto.sno % 5 == 0}?${dto.sno}:${dto.first}"></li>
+    </th:block>
+  </ul>
+</ul>
+
+
+</body>
+</html>
